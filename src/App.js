@@ -1,7 +1,7 @@
 function App() {
   return (
     <>
-      <h4>Todo App</h4>
+      <h4 className="text-primary">Todo App</h4>
     </>
   );
 }
