@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 
-export default class SignUp extends Component {
+export default class AddTask extends Component {
   state = {
-    email: "",
-    password: "",
+    task: "",
   };
 
   handleChange = (e) => {
@@ -25,28 +24,19 @@ export default class SignUp extends Component {
           onSubmit={this.handleSubmit}
         >
           <legend>
-            <h4>Sign Up</h4>
+            <h4>Add Task</h4>
           </legend>
           <div className="form-group">
-            <label htmlFor="email">Enter Email</label>
+            <label htmlFor="task">Add a Task</label>
             <input
-              type="email"
+              type="text"
               className="fom-control"
-              id="email"
-              onChange={this.handleChange}
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              className="fom-control"
-              id="password"
+              id="task"
               onChange={this.handleChange}
             />
           </div>
           <button type="submit" className="btn btn-primary">
-            SignUp
+            Add Task
           </button>
         </form>
       </>
