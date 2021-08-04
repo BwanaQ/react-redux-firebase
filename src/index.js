@@ -3,15 +3,31 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.css";
-import { createStore } from "redux";
+import { createStore, applyMiddleware } from "redux";
 import rootReducer from "./Reducers/rootReducer";
 import { Provider } from "react-redux";
+import thunk from "redux-thunk";
+import { getFirebase, ReactReduxFirebaseProvider } from "react-redux-firebase";
+import firebase from "./config/firebaseConfig";
+import { createFirestoreInstance } from "redux-firestore";
+const store = createStore(
+  rootReducer,
+  applyMiddleware(thunk.withExtraArgument({ getFirebase }))
+);
 
-const store = createStore(rootReducer);
+const rrfProps = {
+  firebase,
+  config: {},
+  dispatch: store.dispatch,
+  createFirestoreInstance,
+};
+
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <ReactReduxFirebaseProvider {...rrfProps}>
+        <App />
+      </ReactReduxFirebaseProvider>
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")
