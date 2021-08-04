@@ -23,19 +23,20 @@ export default class AddTask extends Component {
           style={{ marginTop: "30px" }}
           onSubmit={this.handleSubmit}
         >
-          <legend>
-            <h4>Add Task</h4>
-          </legend>
           <div className="form-group">
             <label htmlFor="task">Add a Task</label>
             <input
               type="text"
-              className="fom-control"
+              className="form-control"
               id="task"
               onChange={this.handleChange}
             />
           </div>
-          <button type="submit" className="btn btn-primary">
+          <button
+            type="submit"
+            className="btn btn-primary"
+            style={{ marginTop: "10px" }}
+          >
             Add Task
           </button>
         </form>

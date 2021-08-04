@@ -31,7 +31,7 @@ export default class SignIn extends Component {
             <label htmlFor="email">Enter Email</label>
             <input
               type="email"
-              className="fom-control"
+              className="form-control"
               id="email"
               onChange={this.handleChange}
             />
@@ -40,12 +40,16 @@ export default class SignIn extends Component {
             <label htmlFor="password">Password</label>
             <input
               type="password"
-              className="fom-control"
+              className="form-control"
               id="password"
               onChange={this.handleChange}
             />
           </div>
-          <button type="submit" className="btn btn-primary">
+          <button
+            type="submit"
+            className="btn btn-primary"
+            style={{ marginTop: "10px" }}
+          >
             SignIn
           </button>
         </form>
